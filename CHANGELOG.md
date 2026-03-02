@@ -8,9 +8,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 
 ## [1.0.0] — 2026-03-01
 
-Initial public release of the PM Agentic Engineering Starter Pack.
+Initial public release of the Product Builder Starter Pack.
 
-**11 Claude Code skills for product managers shipping with agentic AI.**
+**11 Claude Code skills for product builders shipping with agentic AI.**
 
 Copyright 2026 Smith Horn Group Ltd. — Apache 2.0
 

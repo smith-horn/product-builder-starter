@@ -1,14 +1,14 @@
-# PM Agentic Engineering Starter Pack
+# Product Builder Starter Pack
 
-**11 Claude Code skills for product managers shipping with AI**
+**11 Claude Code skills for product builders shipping with AI**
 
-A curated collection of Claude Code skills for product managers and first-time agentic engineers. Install these skills to go from a blank Claude Code session to a full planning-to-execution workflow in minutes.
+A curated collection of Claude Code skills for product builders and first-time agentic engineers. Install these skills to go from a blank Claude Code session to a full planning-to-execution workflow in minutes.
 
 ---
 
 ## Who It's For
 
-You're a PM who has started using Claude Code. You can see the power, but getting from "chat with an AI" to "ship production features with an AI agent" requires knowing which skills to install and in what order. This starter pack gives you that foundation:
+You're a product builder who has started using Claude Code. You can see the power, but getting from "chat with an AI" to "ship production features with an AI agent" requires knowing which skills to install and in what order. This starter pack gives you that foundation:
 
 - You have Claude Code installed and a project you're working on
 - You use **Linear** for issue tracking
