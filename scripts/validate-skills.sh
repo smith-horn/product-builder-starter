@@ -4,8 +4,15 @@ set -euo pipefail
 
 ERRORS=0
 
-for skill_md in skills/*/SKILL.md; do
-  skill=$(basename $(dirname "$skill_md"))
+shopt -s nullglob
+skill_files=(skills/*/SKILL.md)
+if [[ ${#skill_files[@]} -eq 0 ]]; then
+  echo "No SKILL.md files found under skills/. Nothing to validate."
+  exit 0
+fi
+
+for skill_md in "${skill_files[@]}"; do
+  skill=$(basename "$(dirname "$skill_md")")
 
   for field in name version description; do
     if ! grep -q "^${field}:" "$skill_md"; then
@@ -14,8 +21,8 @@ for skill_md in skills/*/SKILL.md; do
     fi
   done
 
-  # Validate semver format
-  version=$(grep "^version:" "$skill_md" | sed "s/version: *//" | tr -d '"'"'" | head -1)
+  # Validate semver format (|| true prevents set -e from firing when version: field is absent)
+  version=$(grep "^version:" "$skill_md" | sed 's/version:[[:space:]]*//' | tr -d '"'"'" | tr -d '\r' | head -1 || true)
   if [[ -n "$version" ]] && ! echo "$version" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$'; then
     echo "ERROR: $skill/SKILL.md has invalid semver: $version"
     ERRORS=$((ERRORS + 1))
@@ -28,4 +35,4 @@ if [[ $ERRORS -gt 0 ]]; then
   exit 1
 fi
 
-echo "All SKILL.md files pass frontmatter validation ($(ls -d skills/*/SKILL.md | wc -l | tr -d ' ') skills checked)."
+echo "All SKILL.md files pass frontmatter validation (${#skill_files[@]} skills checked)."
